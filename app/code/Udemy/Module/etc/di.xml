@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="udemyAddItem" xsi:type="object">Udemy\Module\Console\Command\AddItem</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Udemy\Module\Api\Data\ItemInterface" type="Udemy\Module\Model\Item"/>
+    <preference for="Udemy\Module\Api\ItemRepositoryInterface" type="Udemy\Module\Model\ItemRepository"/>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="udemy_items_grid_data_source" xsi:type="string">Udemy\Module\Model\ResourceModel\Item\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
